@@ -12,7 +12,7 @@
         >
       </div>
       <div class="pr-3">
-        <NuxtLink to="/"
+        <NuxtLink to="/todo"
           ><button
             class="p-2 border-[1px] border-solid border-red-300 rounded-md"
           >
