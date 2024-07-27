@@ -33,15 +33,15 @@ export const useTodoStore = defineStore("todoStore", {
         return state.items.find((item) => item.id === id);
       },
     getOrderedTodos: (state): Todo[] => {
-      return state.items
-        .slice()
-        .sort((a, b) => a.createdAt.getTime() - b.createdAt.getTime());
+      return [...state.items].sort(
+        (a, b) => a.createdAt.getTime() - b.createdAt.getTime()
+      );
     },
   },
   actions: {
     add(partialTodo: TodoAdd) {
       const newTodo: Todo = {
-        id: (this.items.length + 1).toString(),
+        id: Date.now().toString(), // Generate unique ID using current timestamp
         title: partialTodo.title,
         done: false,
         createdAt: new Date(),
